@@ -1,17 +1,11 @@
 from rest_framework.serializers import ModelSerializer
 
-from network.models import Network, Company, Product
+from network.models import NetworkLink, Product
 
 
 class NetworkSerializers(ModelSerializer):
     class Meta:
-        model = Network
-        fields = "__all__"
-
-
-class CompanySerializers(ModelSerializer):
-    class Meta:
-        model = Company
+        model = NetworkLink
         fields = "__all__"
 
 
