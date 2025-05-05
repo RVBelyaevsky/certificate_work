@@ -1,6 +1,6 @@
 from rest_framework import generics
 from network.models import NetworkLink, Product
-from network.serializers import NetworkSerializers, ProductSerializers
+from network.serializers import NetworkSerializers, ProductSerializers, NetworkUpdateSerializers
 
 
 class ProductCreateAPIView(generics.CreateAPIView):
@@ -42,7 +42,7 @@ class NetworkLinkUpdateAPIView(generics.UpdateAPIView):
     """Обновление объекта Network"""
 
     queryset = NetworkLink.objects.all()
-    serializer_class = NetworkSerializers
+    serializer_class = NetworkUpdateSerializers
 
 
 class NetworkLinkRetrieveAPIView(generics.RetrieveAPIView):
