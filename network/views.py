@@ -1,6 +1,7 @@
 from django_filters.rest_framework import DjangoFilterBackend
 from rest_framework import generics
 from network.models import NetworkLink, Product
+from network.permissions import IsActive
 from network.serializers import NetworkSerializers, ProductSerializers, NetworkUpdateSerializers
 
 
@@ -16,6 +17,7 @@ class ProductRetrieveAPIView(generics.RetrieveAPIView):
 
     queryset = Product.objects.all()
     serializer_class = ProductSerializers
+    permission_classes = [IsActive]
 
 
 class ProductUpdateAPIView(generics.UpdateAPIView):
@@ -23,6 +25,7 @@ class ProductUpdateAPIView(generics.UpdateAPIView):
 
     queryset = Product.objects.all()
     serializer_class = ProductSerializers
+    permission_classes = [IsActive]
 
 
 class ProductDestroyAPIView(generics.DestroyAPIView):
@@ -30,6 +33,7 @@ class ProductDestroyAPIView(generics.DestroyAPIView):
 
     queryset = Product.objects.all()
     serializer_class = ProductSerializers
+    permission_classes = [IsActive]
 
 
 class NetworkLinkCreateAPIView(generics.CreateAPIView):
@@ -44,6 +48,7 @@ class NetworkLinkUpdateAPIView(generics.UpdateAPIView):
 
     queryset = NetworkLink.objects.all()
     serializer_class = NetworkUpdateSerializers
+    permission_classes = [IsActive]
 
 
 class NetworkLinkRetrieveAPIView(generics.RetrieveAPIView):
@@ -51,6 +56,7 @@ class NetworkLinkRetrieveAPIView(generics.RetrieveAPIView):
 
     queryset = NetworkLink.objects.all()
     serializer_class = NetworkSerializers
+    permission_classes = [IsActive]
 
 
 class NetworkLinkListAPIView(generics.ListAPIView):
@@ -68,3 +74,4 @@ class NetworkLinkDestroyAPIView(generics.DestroyAPIView):
 
     queryset = NetworkLink.objects.all()
     serializer_class = NetworkSerializers
+    permission_classes = [IsActive]
