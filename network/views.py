@@ -1,3 +1,4 @@
+from django_filters.rest_framework import DjangoFilterBackend
 from rest_framework import generics
 from network.models import NetworkLink, Product
 from network.serializers import NetworkSerializers, ProductSerializers, NetworkUpdateSerializers
@@ -57,6 +58,9 @@ class NetworkLinkListAPIView(generics.ListAPIView):
 
     queryset = NetworkLink.objects.all()
     serializer_class = NetworkSerializers
+
+    filter_backends = (DjangoFilterBackend,)
+    filterset_fields = ['country']
 
 
 class NetworkLinkDestroyAPIView(generics.DestroyAPIView):
